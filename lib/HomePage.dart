@@ -11,8 +11,10 @@ class _MyHomePageState extends State<MyHomePage> {
   ShopManager nowManager = ShopManager();
   @override
   Widget build(BuildContext context) {
-    var list =
-        nowManager.productList.map((e) => ProductCard(CurrentProd: e)).toList();
+    var list = nowManager
+        .getListByCat(type.food)
+        .map((e) => ProductCard(CurrentProd: e))
+        .toList();
     print(list);
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SafeArea(
-        child: Expanded(child: Column(children: list)),
+        child: Column(children: list),
       ),
     );
   }
