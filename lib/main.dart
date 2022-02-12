@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:resturant_app/HomePage.dart';
+import 'package:resturant_app/Order.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,11 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xFF0A0E21),
           scaffoldBackgroundColor: Color(0xFF0A0E21),
           appBarTheme: AppBarTheme(backgroundColor: Color(0xFF0A0E21))),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      routes: {
+        '/': (context) => MyHomePage(),
+        "/order": (context) => OrderPage()
+      },
     );
   }
 }

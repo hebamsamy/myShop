@@ -39,7 +39,23 @@ class ShopManager {
         price: 50,
         catergy: type.food,
         image: "img/strawberry.jpeg",
-        qty: 5)
+        qty: 5),
+    Product(
+        id: "5",
+        title: "Jacket",
+        desc: "desc",
+        price: 500,
+        catergy: type.cloth,
+        image: "img/strawberry.jpeg",
+        qty: 5),
+    Product(
+        id: "5",
+        title: "blouse",
+        desc: "desc",
+        price: 50,
+        catergy: type.cloth,
+        image: "img/strawberry.jpeg",
+        qty: 5),
   ];
   List<Product> getList() {
     return productList;

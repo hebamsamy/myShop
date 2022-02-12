@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:resturant_app/shopManager.dart';
 
 class OrderPage extends StatefulWidget {
-  Product currentprod;
-  OrderPage({required this.currentprod});
+  // Product currentprod;
+  // OrderPage({required this.currentprod});
 
   @override
   _OrderPageState createState() => _OrderPageState();
@@ -17,9 +17,10 @@ class _OrderPageState extends State<OrderPage> {
   // }
   @override
   Widget build(BuildContext context) {
+    var currentprodargs = ModalRoute.of(context)!.settings.arguments as Product;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.currentprod.title),
+        title: Text(currentprodargs.title),
       ),
       body: SafeArea(
         child: Column(
@@ -27,7 +28,7 @@ class _OrderPageState extends State<OrderPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image(
-              image: AssetImage(widget.currentprod.image),
+              image: AssetImage(currentprodargs.image),
             ),
             Text(
               "Your Count ${count.toInt()} ",
@@ -35,13 +36,13 @@ class _OrderPageState extends State<OrderPage> {
             ),
             Slider(
               min: 1,
-              max: widget.currentprod.qty.toDouble(),
+              max: currentprodargs.qty.toDouble(),
               value: count,
               onChanged: (double newval) {
                 // print(newval);
                 setState(() {
                   count = newval;
-                  total = count.toInt() * widget.currentprod.price;
+                  total = count.toInt() * currentprodargs.price;
                 });
               },
             ),
@@ -54,7 +55,7 @@ class _OrderPageState extends State<OrderPage> {
                 SizedBox(
                   width: 20,
                 ),
-                Text(widget.currentprod.price.toString(),
+                Text(currentprodargs.price.toString(),
                     style: TextStyle(fontSize: 30))
               ],
             ),

@@ -11,10 +11,8 @@ class _MyHomePageState extends State<MyHomePage> {
   ShopManager nowManager = ShopManager();
   @override
   Widget build(BuildContext context) {
-    var list = nowManager
-        .getListByCat(type.food)
-        .map((e) => ProductCard(CurrentProd: e))
-        .toList();
+    var list = nowManager.getList();
+    // nowManager.getList().map((e) => ProductCard(CurrentProd: e)).toList();
     print(list);
     return Scaffold(
       appBar: AppBar(
@@ -28,8 +26,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: SafeArea(
-        child: Column(children: list),
-      ),
+          child: ListView.builder(
+        itemBuilder: (context, x) => ProductCard(CurrentProd: list[x]),
+        itemCount: list.length,
+      )
+          // child: ListView(children: list),
+          // child: SingleChildScrollView(child: Column(children: list)),
+          ),
     );
   }
 }

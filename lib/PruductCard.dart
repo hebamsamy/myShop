@@ -9,12 +9,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (_) => OrderPage(
-                      currentprod: CurrentProd,
-                    )));
+        Navigator.pushNamed(context, "/order", arguments: CurrentProd);
       },
       child: Card(
         margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
