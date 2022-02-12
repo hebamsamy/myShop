@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resturant_app/Constants.dart';
 import 'package:resturant_app/PruductCard.dart';
 import 'package:resturant_app/shopManager.dart';
 
@@ -16,15 +17,23 @@ class _MyHomePageState extends State<MyHomePage> {
     print(list);
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.emoji_emotions,
-          color: Colors.amber,
-        ),
-        title: Text(
-          "My Shop",
-          style: TextStyle(color: Colors.amber),
-        ),
-      ),
+          leading: Icon(
+            Icons.emoji_emotions,
+            color: primaryColor,
+          ),
+          title: Text(
+            "My Shop",
+            style: TextStyle(color: primaryColor),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/create");
+              },
+              icon: Icon(Icons.add),
+              color: primaryColor,
+            )
+          ]),
       body: SafeArea(
           child: ListView.builder(
         itemBuilder: (context, x) => ProductCard(CurrentProd: list[x]),

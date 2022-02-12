@@ -64,6 +64,10 @@ class ShopManager {
   List<Product> getListByCat(type t) {
     return productList.where((element) => element.catergy == t).toList();
   }
+
+  void AddtoList(Product newproud) {
+    productList.add(newproud);
+  }
 }
 
 class Product {
